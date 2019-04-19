@@ -13,5 +13,7 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     console.log('card initialized', this)
   }
-
+  handleCardClick(card: Card): void {
+    card.isFlipped = !card.isFlipped;
+  }
 }
