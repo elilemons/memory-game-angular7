@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CardComponent } from '../../modules/card/card.component';
 import { CardService } from '../../services/card-service.service';
 
