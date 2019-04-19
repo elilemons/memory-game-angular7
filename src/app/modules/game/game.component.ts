@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../../modules/card/card.component';
+import { CardService } from '../../services/card-service.service';
+
 
 @Component({
   selector: 'app-game',
@@ -7,10 +9,10 @@ import { CardComponent } from '../../modules/card/card.component';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
+    this.cardService.init(10);
   }
 
 }
