@@ -1,7 +1,3 @@
-<p>
-  game works!
-</p>
-
-<app-card *ngFor="let card of cardService.cards">
+<app-card *ngFor="let card of cardService.cards" [card]="card" class="card">
 
 </app-card>

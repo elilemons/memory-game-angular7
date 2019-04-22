@@ -1,3 +1,10 @@
-<p>
-  card works!
-</p>
+<div class="card-inner"
+     (click)="handleCardClick(card)"
+     [ngClass]="{ 'card-inner__front' : card.isFlipped, 'card-inner__back' : !card.isFlipped }">
+  <span *ngIf="!card.isFlipped">{{ card.id }}</span>
+  <img *ngIf="card.isFlipped"
+       src="{{ card.image }}"
+       alt="{{ card.name }}"
+       class="card-image"
+       title="Can you find the matching {{ card.name }}?" />
+</div>

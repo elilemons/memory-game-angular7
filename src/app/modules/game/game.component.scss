@@ -1,0 +1,18 @@
+.card {
+  flex: 0 1 85px;
+  height: 85px;
+
+  border: 1px black solid;
+  margin: 2.5px 2.5px;
+  cursor: pointer;
+}
+.card:hover {
+  background: rgba(0, 0, 0, .1);
+  cursor: pointer;
+}
+.card.matched {
+  border-color: #CAE2BC;
+  cursor: default;
+  opacity: .4;
+  cursor: not-allowed;
+}

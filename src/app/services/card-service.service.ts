@@ -37,7 +37,7 @@ export  class CardService {
       }
 
       group++;
-    } while (group < groupsOfTwenty);
+    } while (group <= groupsOfTwenty);
 
     let cuteBabes = [];
     kittens.forEach(kitten => cuteBabes.push(kitten));
