@@ -1,3 +1,7 @@
-<app-card *ngFor="let card of cardService.cards" [card]="card" class="card">
-
+<app-card *ngFor="let card of cardService.cards"
+          [card]="card"
+          (flipped)="onFlipped($event)"
+          [ngClass]="{ 'matched' : card.isMatched }"
+          order="card.order"
+          class="card">
 </app-card>
