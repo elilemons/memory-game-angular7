@@ -5,3 +5,13 @@
           order="card.order"
           class="card">
 </app-card>
+
+<app-modal [showModal]="showModal"
+           [modalTitle]="modalTitle"
+           [buttonSubmitText]="modalButtonSubmitText"
+           (submitted)="onModalSubmit($event)">
+  <div *ngIf="won"
+       class="text-center">
+    YOU'VE WON!
+  </div>
+</app-modal>

@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { CardComponent } from '../modules/card/card.component';
 import { GameComponent } from '../modules/game/game.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     CardComponent,
-    GameComponent
+    GameComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule
