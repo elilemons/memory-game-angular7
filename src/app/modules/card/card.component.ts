@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import Card from '../../models/card';
 
 @Component({
@@ -6,14 +6,11 @@ import Card from '../../models/card';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() card: Card;
-  constructor() { }
+  @Output() flipped = new EventEmitter<Card>();
 
-  ngOnInit() {
-    console.log('card initialized', this)
-  }
-  handleCardClick(card: Card): void {
-    card.isFlipped = !card.isFlipped;
+  handleCardClick(card: Card): void {    
+    this.flipped.emit(card);
   }
 }
