@@ -12,20 +12,32 @@ import Card from 'src/app/models/card';
   }
 })
 export class GameComponent implements OnInit {
+  private won: boolean;
+  private showModal: boolean;
+  private modalButtonSubmitText: string;
+  private modalTitle: string;
+
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
     this.cardService.init(10);
   }
   
-  onFlipped(card: Card) {
+  onFlipped(card: Card): void {
     if (card.isMatched) { return; }
     if (this.cardService.flipCard(card)) {
       this.handleWin();
     }
   }
 
-  handleWin() {
-    console.log('you won');
+  handleWin(): void {
+    this.won = true;
+    this.showModal = true;
+    this.modalTitle = 'You\'ve won!';
+    this.modalButtonSubmitText = 'SCHWEEET';
+  }
+
+  onModalSubmit(): void {
+    this.showModal = false;
   }
 }

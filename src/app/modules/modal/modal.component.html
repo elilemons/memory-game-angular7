@@ -1,0 +1,30 @@
+<div *ngIf="showModal"
+     class="modal-wrapper">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">
+        {{ modalTitle || 'Confirm' }}
+      </div>
+      <div class="modal-toolbar-buttons">
+        <div class="modal-close"
+             (click)="showModal = false">x</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer"
+         [ngClass]="{ 'bg-white' : !(showButtonCancel || showButtonSubmit) }">
+      <div class="button button-pause"
+           *ngIf="buttonCancelText"
+           (click)="showModal = false">
+        {{ buttonCancelText || 'Cancel' }}
+      </div>
+      <div class="button button-go"
+           *ngIf="buttonSubmitText"
+           (click)="handleSubmitClick()">
+        {{ buttonSubmitText || 'Submit' }}
+      </div>
+    </div>
+  </div>
+</div>
