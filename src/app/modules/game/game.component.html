@@ -2,7 +2,7 @@
           [card]="card"
           (flipped)="onFlipped($event)"
           [ngClass]="{ 'matched' : card.isMatched }"
-          order="card.order"
+          [ngStyle]="{ 'order': card.order }"
           class="card">
 </app-card>
 

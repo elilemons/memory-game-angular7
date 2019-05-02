@@ -1,5 +1,5 @@
 [ x ] Matching
-[ ] Winning
-[ ] Shuffling
+[ x ] Winning
+[ x ] Shuffling
 [ ] Controls
 [ ] Timer
