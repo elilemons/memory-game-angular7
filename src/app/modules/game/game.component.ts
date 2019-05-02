@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../services/card-service.service';
 import Card from 'src/app/models/card';
+import Timer from 'src/app/models/timer';
 
 
 @Component({
@@ -12,6 +13,7 @@ import Card from 'src/app/models/card';
   }
 })
 export class GameComponent implements OnInit {
+  private timer: Timer = new Timer();
   private won: boolean;
   private showModal: boolean;
   private modalButtonSubmitText: string;
@@ -21,7 +23,6 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.cardService.init(10);
-    console.log('Card service: ', this.cardService)
   }
   
   onFlipped(card: Card): void {

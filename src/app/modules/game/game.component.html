@@ -1,4 +1,6 @@
-<app-controls (started)="onStart($event)" (paused)="onPause($event)" (hasReset)="onReset($event)">
+<app-controls (started)="onStart($event)"
+              (paused)="onPause($event)"
+              (hasReset)="onReset($event)">
 
 </app-controls>
 <app-card *ngFor="let card of cardService.cards"
@@ -8,6 +10,9 @@
           [ngStyle]="{ 'order': card.order }"
           class="card">
 </app-card>
+<app-timer [timer]="timer">
+
+</app-timer>
 
 <app-modal [showModal]="showModal"
            [modalTitle]="modalTitle"
