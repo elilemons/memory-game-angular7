@@ -44,6 +44,8 @@ export class GameComponent implements OnInit {
   }
 
   onStart(): void {
+    // TODO Set up interval
+    // this.timer.start();
     console.log('Game start');
   }
   onPause(): void {
