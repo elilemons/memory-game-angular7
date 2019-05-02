@@ -1,3 +1,6 @@
+<app-controls (started)="onStart($event)" (paused)="onPause($event)" (hasReset)="onReset($event)">
+
+</app-controls>
 <app-card *ngFor="let card of cardService.cards"
           [card]="card"
           (flipped)="onFlipped($event)"

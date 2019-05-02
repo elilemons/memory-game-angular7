@@ -41,4 +41,14 @@ export class GameComponent implements OnInit {
   onModalSubmit(): void {
     this.showModal = false;
   }
+
+  onStart(): void {
+    console.log('Game start');
+  }
+  onPause(): void {
+    console.log('Game paused');
+  }
+  onReset(): void {
+    console.log('Game reset');
+  }
 }
