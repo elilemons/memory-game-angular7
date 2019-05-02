@@ -21,6 +21,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.cardService.init(10);
+    console.log('Card service: ', this.cardService)
   }
   
   onFlipped(card: Card): void {
