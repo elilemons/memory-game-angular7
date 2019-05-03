@@ -5,7 +5,7 @@ import Card from '../models/card';
   providedIn: 'root'
 })
 
-export  class CardService {
+export class CardService {
   public numOfCards: number;
    cards: Card[];
   private matchedCards: Card[];

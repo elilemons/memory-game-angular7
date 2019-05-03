@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CardService } from '../../services/card-service.service';
+import { CardService } from '../../services/card.service';
+import { TimerService } from 'src/app/services/timer.service';
 import Card from 'src/app/models/card';
-import Timer from 'src/app/models/timer';
-
 
 @Component({
   selector: 'app-game',
@@ -13,16 +12,19 @@ import Timer from 'src/app/models/timer';
   }
 })
 export class GameComponent implements OnInit {
-  private timer: Timer = new Timer();
   private won: boolean;
   private showModal: boolean;
   private modalButtonSubmitText: string;
   private modalTitle: string;
 
-  constructor(private cardService: CardService) { }
+  constructor(
+    private cardService: CardService,
+    private timerService: TimerService
+  ) { }
 
   ngOnInit() {
     this.cardService.init(10);
+    this.timerService.init();
   }
   
   onFlipped(card: Card): void {
@@ -44,14 +46,12 @@ export class GameComponent implements OnInit {
   }
 
   onStart(): void {
-    // TODO Set up interval
-    // this.timer.start();
-    console.log('Game start');
+    this.timerService.startTimer();
   }
   onPause(): void {
-    console.log('Game paused');
+    this.timerService.pauseTimer();
   }
   onReset(): void {
-    console.log('Game reset');
+    this.timerService.resetTimer();
   }
 }
