@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CardService } from '../../services/card-service.service';
+import { CardService } from '../../services/card.service';
+import { TimerService } from 'src/app/services/timer.service';
 import Card from 'src/app/models/card';
-
 
 @Component({
   selector: 'app-game',
@@ -12,16 +12,20 @@ import Card from 'src/app/models/card';
   }
 })
 export class GameComponent implements OnInit {
-  private won: boolean;
-  private showModal: boolean;
-  private modalButtonSubmitText: string;
-  private modalTitle: string;
-
-  constructor(private cardService: CardService) { }
+  won: boolean;
+  userPaused: boolean;
+  showModal: boolean;
+  modalButtonSubmitText: string;
+  modalTitle: string;
+  private numOfCards: number = 10;
+  constructor(
+    private cardService: CardService,
+    private timerService: TimerService
+  ) { }
 
   ngOnInit() {
-    this.cardService.init(10);
-    console.log('Card service: ', this.cardService)
+    this.cardService.init(this.numOfCards);
+    this.timerService.init();
   }
   
   onFlipped(card: Card): void {
@@ -33,6 +37,8 @@ export class GameComponent implements OnInit {
 
   handleWin(): void {
     this.won = true;
+    this.userPaused = false;
+
     this.showModal = true;
     this.modalTitle = 'You\'ve won!';
     this.modalButtonSubmitText = 'SCHWEEET';
@@ -40,5 +46,25 @@ export class GameComponent implements OnInit {
 
   onModalSubmit(): void {
     this.showModal = false;
+  }
+
+  onStart(): void {
+    this.timerService.startTimer();
+  }
+
+  onPause(): void {
+    this.timerService.pauseTimer();
+
+    if (!this.userPaused) {
+      this.userPaused = true;
+      this.showModal = true;
+      this.modalTitle = 'You\'ve paused the game.';
+      this.modalButtonSubmitText = 'Resume';
+    }
+  }
+
+  onReset(): void {
+    this.timerService.resetTimer();
+    this.cardService.init(this.numOfCards);
   }
 }
