@@ -4,9 +4,10 @@
 
 </app-controls>
 <div class="game-timer">
-  {{ timerService.getFullTimerString() }} 
+  {{ timerService.getFullTimerString() }}
 </div>
-<div class="card-grid" *ngIf="timerService.isRunning() || won">
+<div class="card-grid"
+     *ngIf="timerService.isRunning() || won">
   <app-card *ngFor="let card of cardService.cards"
             [card]="card"
             (flipped)="onFlipped($event)"
@@ -15,13 +16,13 @@
             class="card">
   </app-card>
 </div>
-<app-modal [showModal]="showModal"
-           [modalTitle]="modalTitle"
-           [modalContent]="modalContent"
-           [buttonSubmitText]="modalButtonSubmitText"
-           (submitted)="onModalSubmit($event)">
+<app-modal  [showModal]="showModal"
+            [modalTitle]="modalTitle"
+            [modalContent]="modalContent"
+            [buttonSubmitText]="modalButtonSubmitText"
+            (submitted)="onModalSubmit($event)">
   <div *ngIf="won"
-       class="text-center">
+        class="text-center">
     YOU'VE WON!
   </div>
 </app-modal>
