@@ -5,13 +5,9 @@
       <div class="modal-title">
         {{ modalTitle || 'Confirm' }}
       </div>
-      <div class="modal-toolbar-buttons">
-        <div class="modal-close"
-             (click)="showModal = false">x</div>
-      </div>
     </div>
     <div class="modal-body">
-      <ng-content></ng-content>
+      {{ modalContent }}
     </div>
     <div class="modal-footer"
          [ngClass]="{ 'bg-white' : !(showButtonCancel || showButtonSubmit) }">
