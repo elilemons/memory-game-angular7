@@ -7,5 +7,5 @@
 [ x ] Show time it took to win
 [ x ] Styling
 [ x ] Hide/show board on win/pause
-[   ] Remove timer component
+[ x ] Remove timer component
 [ x ] Disable pause when relevant
