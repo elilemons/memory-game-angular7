@@ -11,6 +11,11 @@ export class TimerService {
     this.timer = new Timer();
   }
 
+  isRunning(): boolean{
+    console.log('this.timer.interval: ', this.timer.interval);
+    return this.timer.interval > 0 && this.timer.interval !== undefined;
+  }
+
   startTimer() {
     this.timer.start();
   }

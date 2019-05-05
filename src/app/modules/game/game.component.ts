@@ -71,6 +71,7 @@ export class GameComponent implements OnInit {
 
   onReset(): void {
     this.timerService.resetTimer();
+    this.timerService.init();
     this.cardService.init(this.numOfCards);
   }
 }

@@ -1,10 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; height: 100vh; width: 100vw; }
+html, body { margin: 0; padding: 0; }
+html { position: relative;  height: 100vh; width: 100vw; }
+/* 320px or less */
+
+/* Typography */
+html {
+  font-family: monospace;
+  font-size: 16px;
+  color: #222;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.title {
+  text-align: center;
+}
+
+/* Containers */
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 320px;
+}
+
+/* Blocks */
+
+/* Helpers */
+.hide {
+  display: none;
+}
+
+.footer {
+  text-align: center;
+}
+.bg-white {
+  background: white;
+}
+.pointer {
+  cursor: pointer;
+}
+.text-center {
+  text-align: center;
+}
 .card-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 5px auto;
   max-width: 290px;
+}
+.button {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  &-go {
+    background: #CAE2BC;
+  }
+  &-pause {
+    background: #F694C1;
+  }
+  &-reset {
+    background: #83C5E6;
+  }
+  &:hover {
+    font-weight: 700;
+  }
+  &-go:hover {
+    background: #B0BC98;
+  }
+  &-pause:hover {
+    background: #CA7A9E;
+  }
+  &-reset:hover {
+    background: #4EADDC;
+  }
 }
