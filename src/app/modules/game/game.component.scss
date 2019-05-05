@@ -17,3 +17,11 @@
     cursor: not-allowed;
   }
 }
+
+.game {
+  &-timer {
+    text-align: center;
+    font-family: monospace;
+    font-weight: 700;
+  }
+}

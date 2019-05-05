@@ -7,9 +7,6 @@ import Card from 'src/app/models/card';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  host: {
-    class:'card-grid'
-  }
 })
 export class GameComponent implements OnInit {
   won: boolean;
