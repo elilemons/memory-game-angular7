@@ -16,6 +16,14 @@
     opacity: .4;
     cursor: not-allowed;
   }
+
+  &-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px auto;
+    max-width: 290px;
+  }
 }
 
 .game {

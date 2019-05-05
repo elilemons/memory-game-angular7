@@ -48,7 +48,6 @@ export class CardService {
       cuteBabes[i].order = cuteBabes[i];
       this.cards.push(cuteBabes[i]);
     }
-
     this.shuffleCards();
   }
 
@@ -80,7 +79,7 @@ export class CardService {
     }
 
     if (!card.isFlipped) { // If we are flipping the card back to its front, make sure the appropiate arrays are updated
-      let cardToFlip, i = 0;
+      let cardToFlip: Card, i = 0;
       // Find the card in the flipped cards and remove it, placing it into cardToFlip
       for (i = 0; i < this.flippedCards.length; i++) {
         if (this.flippedCards[i].id === card.id) {

@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
   modalButtonSubmitText: string;
   modalTitle: string;
   modalContent: string;
-  private numOfCards = 10;
+  private numOfCards = 20;
   constructor(
     private cardService: CardService,
     private timerService: TimerService
