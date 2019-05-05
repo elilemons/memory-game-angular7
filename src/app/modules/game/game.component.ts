@@ -58,7 +58,7 @@ export class GameComponent implements OnInit {
   }
 
   onPause(): void {    
-    if (this.userPaused) { return; }
+    if (!this.timerService.isRunning()) { return; }
     
     this.timerService.pauseTimer();
     this.userPaused = true;
