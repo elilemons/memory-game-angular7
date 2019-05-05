@@ -17,6 +17,7 @@ export class GameComponent implements OnInit {
   showModal: boolean;
   modalButtonSubmitText: string;
   modalTitle: string;
+  modalContent: string;
   private numOfCards: number = 10;
   constructor(
     private cardService: CardService,
@@ -36,31 +37,39 @@ export class GameComponent implements OnInit {
   }
 
   handleWin(): void {
+    this.timerService.pauseTimer();
+
     this.won = true;
     this.userPaused = false;
 
     this.showModal = true;
     this.modalTitle = 'You\'ve won!';
     this.modalButtonSubmitText = 'SCHWEEET';
+    this.modalContent = `Your time was: ${this.timerService.getFullTimerString()}.`;
   }
 
   onModalSubmit(): void {
     this.showModal = false;
+    if (this.userPaused) { 
+      this.userPaused = false;
+      this.timerService.startTimer(); 
+    }
   }
 
   onStart(): void {
     this.timerService.startTimer();
   }
 
-  onPause(): void {
+  onPause(): void {    
+    if (this.userPaused) { return; }
+    
     this.timerService.pauseTimer();
+    this.userPaused = true;
 
-    if (!this.userPaused) {
-      this.userPaused = true;
-      this.showModal = true;
-      this.modalTitle = 'You\'ve paused the game.';
-      this.modalButtonSubmitText = 'Resume';
-    }
+    this.showModal = true;
+    this.modalTitle = 'You\'ve paused the game.';
+    this.modalContent = 'Click resume to continue.';
+    this.modalButtonSubmitText = 'Resume';
   }
 
   onReset(): void {

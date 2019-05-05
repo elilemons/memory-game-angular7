@@ -15,6 +15,7 @@
 </div>
 <app-modal [showModal]="showModal"
            [modalTitle]="modalTitle"
+           [modalContent]="modalContent"
            [buttonSubmitText]="modalButtonSubmitText"
            (submitted)="onModalSubmit($event)">
   <div *ngIf="won"
