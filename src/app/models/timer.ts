@@ -13,7 +13,7 @@ export default class Timer implements TimerInterface {
   seconds: number;
   milliseconds: number;
 
-  constructor() { 
+  constructor() {
     this.interval = 0;
     this.hours = 0;
     this.minutes = 0;
@@ -22,11 +22,10 @@ export default class Timer implements TimerInterface {
   }
 
   start() {
-    this.interval = setInterval(() => { 
+    this.interval = setInterval(() => {
       if (this.milliseconds >= 999) {
         this.milliseconds = this.milliseconds - 999;
         this.seconds += 1;
-  
         if (this.seconds === 59) {
           this.minutes += 1;
           this.seconds = 0;
@@ -36,7 +35,7 @@ export default class Timer implements TimerInterface {
           }
         }
       }
-    this.milliseconds += 5;    
+    this.milliseconds += 5;
   });
   }
 
@@ -54,5 +53,4 @@ export default class Timer implements TimerInterface {
     this.seconds = 0;
     this.milliseconds = 0;
   }
-  
 }

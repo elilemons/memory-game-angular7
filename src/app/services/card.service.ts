@@ -19,8 +19,8 @@ export class CardService {
 
   private createCards(numOfCards: number): void {
     let i = 1,
-      group = 0,
-      groupsOfTwenty = Math.floor(numOfCards / 20), // Because we have a possible 20 pairs
+      group = 0;
+    const groupsOfTwenty = Math.floor(numOfCards / 20), // Because we have a possible 20 pairs
       kittens = [],
       puppies = [];
     // Empty out all arrays
@@ -39,7 +39,7 @@ export class CardService {
       group++;
     } while (group <= groupsOfTwenty);
 
-    let cuteBabes = [];
+    const cuteBabes = [];
     kittens.forEach(kitten => cuteBabes.push(kitten));
     puppies.forEach(puppy => cuteBabes.push(puppy));
     // Set up initial cards
@@ -54,7 +54,7 @@ export class CardService {
 
   /**
  *  Handles the card flip game logic
- * @param {Card} card The card that is being flipped
+ * @param card The card that is being flipped
  * @return Whether or not the user has won the game.
  */
   flipCard(card: Card): boolean {
@@ -98,10 +98,10 @@ export class CardService {
 
   /**
    * Removes the first two cards in the array, then flips them in the game's array as well
-   * @param {Array} flippedCards An array of flipped cards
+   * @param flippedCards An array of flipped cards
    */
   public flipCardsBack(flippedCards: Card[]): void {
-    let card1 = flippedCards.shift(),
+    const card1 = flippedCards.shift(),
       card2 = flippedCards.shift();
     this.findCardInGameDeck(card1.id).isFlipped = false;
     this.findCardInGameDeck(card2.id).isFlipped = false;
@@ -111,7 +111,7 @@ export class CardService {
    * The game keeps track of the entire deck, so this function lets us search it quickly by card id
    */
   public findCardInGameDeck(cardId: number): Card {
-    for (let card of this.cards) {
+    for (const card of this.cards) {
       if (card.id === cardId) {
         return card;
       }
@@ -122,7 +122,7 @@ export class CardService {
  * Shuffles the order of the cards
  */
   private shuffleCards(): void {
-    let chosenNumbers: number[] = [];
+    const chosenNumbers: number[] = [];
 
     for (let i = 0; i < this.cards.length; i++) {
       let chosenNumber = Math.floor(Math.random() * this.numOfCards) + 1;
@@ -141,11 +141,11 @@ export class CardService {
 
   /**
    * Checks for a matched set of cards by popping them off the passed in array
-   * @param {Card[]} cardsToCheck An array of cards to check, expects 2
+   * @param cardsToCheck An array of cards to check, expects 2
    */
   private checkForMatch(cardsToCheck: Card[]): boolean {
     if (cardsToCheck[0].name === cardsToCheck[1].name) {
-      let card1 = cardsToCheck.pop(),
+      const card1 = cardsToCheck.pop(),
         card2 = cardsToCheck.pop();
       card1.isMatched = true;
       card2.isMatched = true;
