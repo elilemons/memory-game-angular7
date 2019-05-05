@@ -3,15 +3,17 @@
               (hasReset)="onReset($event)">
 
 </app-controls>
-<app-card *ngFor="let card of cardService.cards"
-          [card]="card"
-          (flipped)="onFlipped($event)"
-          [ngClass]="{ 'matched' : card.isMatched }"
-          [ngStyle]="{ 'order': card.order }"
-          class="card">
-</app-card>
 <div class="game-timer">
-  {{ timerService.getFullTimerString() }}
+  {{ timerService.getFullTimerString() }} 
+</div>
+<div class="card-grid" *ngIf="timerService.isRunning() || won">
+  <app-card *ngFor="let card of cardService.cards"
+            [card]="card"
+            (flipped)="onFlipped($event)"
+            [ngClass]="{ 'matched' : card.isMatched }"
+            [ngStyle]="{ 'order': card.order }"
+            class="card">
+  </app-card>
 </div>
 <app-modal [showModal]="showModal"
            [modalTitle]="modalTitle"

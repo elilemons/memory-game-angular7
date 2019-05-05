@@ -4,5 +4,8 @@
 [ x ] Controls
 [ x ] Timer
 [ x ] Reset
-[   ] Styling
-[   ] Hide/show board on win/pause
+[ x ] Show time it took to win
+[ x ] Styling
+[ x ] Hide/show board on win/pause
+[   ] Remove timer component
+[ x ] Disable pause when relevant

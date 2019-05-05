@@ -1,35 +1,3 @@
-.button {
-  display: block;
-  width: 100%;
-  padding: 5px;
-  text-align: center;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  &-go {
-    background: #CAE2BC;
-  }
-  &-pause {
-    background: #F694C1;
-  }
-  &-reset {
-    background: #83C5E6;
-  }
-  &:hover {
-    font-weight: 700;
-  }
-  &-go:hover {
-    background: #B0BC98;
-  }
-  &-pause:hover {
-    background: #CA7A9E;
-  }
-  &-reset:hover {
-    background: #4EADDC;
-  }
-}
-
-
 .timer {
   font-family: monospace;
   font-weight: bold;

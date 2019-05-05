@@ -7,9 +7,6 @@ import Card from 'src/app/models/card';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  host: {
-    class:'card-grid'
-  }
 })
 export class GameComponent implements OnInit {
   won: boolean;
@@ -61,7 +58,7 @@ export class GameComponent implements OnInit {
   }
 
   onPause(): void {    
-    if (this.userPaused) { return; }
+    if (!this.timerService.isRunning()) { return; }
     
     this.timerService.pauseTimer();
     this.userPaused = true;
@@ -74,6 +71,7 @@ export class GameComponent implements OnInit {
 
   onReset(): void {
     this.timerService.resetTimer();
+    this.timerService.init();
     this.cardService.init(this.numOfCards);
   }
 }
