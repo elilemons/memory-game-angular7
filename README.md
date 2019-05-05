@@ -4,9 +4,9 @@ A simple memory game originally developed in jQuery, then AngularJS, and now in 
 
 ## Stretch TODOs
 If you would like to challenge yourself, there are some remaining tasks that can be done on this project.
-[   ] Make it way less ugly
-[   ] Move timer into controls component
-[   ] Add choice for difficulty
+- [   ] Make it way less ugly
+- [   ] Move timer into controls component
+- [   ] Add choice for difficulty
     - The logic exists, it just needs to be added to the UI
 
 ## Angular 7 Instructions
