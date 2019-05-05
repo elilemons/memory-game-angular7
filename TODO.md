@@ -9,3 +9,9 @@
 [ x ] Hide/show board on win/pause
 [ x ] Remove timer component
 [ x ] Disable pause when relevant
+
+# Stretch
+[   ] Make it way less ugly
+[   ] Move timer into controls component
+[   ] Add choice for difficulty
+    - The logic exists, it just needs to be added to the UI
