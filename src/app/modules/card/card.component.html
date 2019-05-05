@@ -1,7 +1,8 @@
 <div class="card-inner"
      (click)="handleCardClick(card)"
      [ngClass]="{ 'card-inner__front' : card.isFlipped, 'card-inner__back' : !card.isFlipped }">
-  <span *ngIf="!card.isFlipped">{{ card.id }}</span>
+  <!-- COMMENT THIS BACK IN FOR CHEATING PURPOSES -->
+  <!-- <span *ngIf="!card.isFlipped">{{ card.id }}</span> -->
   <img *ngIf="card.isFlipped"
        src="{{ card.image }}"
        alt="{{ card.name }}"

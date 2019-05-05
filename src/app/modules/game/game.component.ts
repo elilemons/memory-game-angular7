@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
   modalButtonSubmitText: string;
   modalTitle: string;
   modalContent: string;
-  private numOfCards: number = 10;
+  private numOfCards = 10;
   constructor(
     private cardService: CardService,
     private timerService: TimerService
@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
     this.cardService.init(this.numOfCards);
     this.timerService.init();
   }
-  
+
   onFlipped(card: Card): void {
     if (card.isMatched) { return; }
     if (this.cardService.flipCard(card)) {
@@ -47,9 +47,9 @@ export class GameComponent implements OnInit {
 
   onModalSubmit(): void {
     this.showModal = false;
-    if (this.userPaused) { 
+    if (this.userPaused) {
       this.userPaused = false;
-      this.timerService.startTimer(); 
+      this.timerService.startTimer();
     }
   }
 
@@ -57,9 +57,9 @@ export class GameComponent implements OnInit {
     this.timerService.startTimer();
   }
 
-  onPause(): void {    
+  onPause(): void {
     if (!this.timerService.isRunning()) { return; }
-    
+
     this.timerService.pauseTimer();
     this.userPaused = true;
 
@@ -70,6 +70,7 @@ export class GameComponent implements OnInit {
   }
 
   onReset(): void {
+    this.won = false;
     this.timerService.resetTimer();
     this.timerService.init();
     this.cardService.init(this.numOfCards);
