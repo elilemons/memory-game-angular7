@@ -12,18 +12,19 @@ import Card from 'src/app/models/card';
   }
 })
 export class GameComponent implements OnInit {
-  private won: boolean;
-  private showModal: boolean;
-  private modalButtonSubmitText: string;
-  private modalTitle: string;
-
+  won: boolean;
+  userPaused: boolean;
+  showModal: boolean;
+  modalButtonSubmitText: string;
+  modalTitle: string;
+  private numOfCards: number = 10;
   constructor(
     private cardService: CardService,
     private timerService: TimerService
   ) { }
 
   ngOnInit() {
-    this.cardService.init(10);
+    this.cardService.init(this.numOfCards);
     this.timerService.init();
   }
   
@@ -36,6 +37,8 @@ export class GameComponent implements OnInit {
 
   handleWin(): void {
     this.won = true;
+    this.userPaused = false;
+
     this.showModal = true;
     this.modalTitle = 'You\'ve won!';
     this.modalButtonSubmitText = 'SCHWEEET';
@@ -48,10 +51,20 @@ export class GameComponent implements OnInit {
   onStart(): void {
     this.timerService.startTimer();
   }
+
   onPause(): void {
     this.timerService.pauseTimer();
+
+    if (!this.userPaused) {
+      this.userPaused = true;
+      this.showModal = true;
+      this.modalTitle = 'You\'ve paused the game.';
+      this.modalButtonSubmitText = 'Resume';
+    }
   }
+
   onReset(): void {
     this.timerService.resetTimer();
+    this.cardService.init(this.numOfCards);
   }
 }
