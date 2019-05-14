@@ -13,17 +13,17 @@ export class CardComponent implements OnInit{
 
 
   ngOnInit() {
-    const IMAGE_DIR: string = '../../assets/images';
-    if (isUndefined(this.card)) {
-      this.card = {
-        id: 1,
-        name: "Mock",
-        image: `${IMAGE_DIR}/kittens/1.png`,
-        isFlipped: true,
-        isMatched: true,
-        order: 1
-      }
-    }
+    // const IMAGE_DIR: string = '../../assets/images';
+    // if (isUndefined(this.card)) {
+    //   this.card = {
+    //     id: 1,
+    //     name: "Mock",
+    //     image: `${IMAGE_DIR}/kittens/1.png`,
+    //     isFlipped: true,
+    //     isMatched: true,
+    //     order: 1
+    //   }
+    // }
   }
   handleCardClick(card: Card): void {
     this.flipped.emit(card);
